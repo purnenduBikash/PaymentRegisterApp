@@ -1,1 +1,26 @@
-<p>payment-detail-form works!</p>
+<form #from = "ngForm" (submit)="onSubmit(from)" [class.submitted]="service.formSubmitted" novalidate autocomplete="off">
+    <input type = "hidden" name ="paymentDetailsId" [value]="service.formData.cardNumber">
+    <div class="mb-3">
+        <label>Card Owner Name</label>
+        <input class="form-control control" placeholder="Name on the Card" #cardOwnerName="ngModel" name="cardOwnerName" [(ngModel)]="service.formData.cardOwnerName" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Card number</label>
+        <input class="form-control control" placeholder="Card Numbner" #cardNumber="ngModel" name="cardNumber" [(ngModel)]="service.formData.cardNumber" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Card CVV</label>
+        <input class="form-control control" placeholder="CVV of the card" #cvv="ngModel" name="cvv" [(ngModel)]="service.formData.cvv" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Card expiry date</label>
+        <input class="form-control control" placeholder="DD/MM/YY" #expiryDate="ngModel" name="expiryDate" [(ngModel)]="service.formData.expiryDate" required>
+    </div>
+
+    <div class="d-grid">
+        <button class="btn btn-lg btn-success" type="submit" id="showToastBtn">Submit</button>
+    </div>
+</form>
